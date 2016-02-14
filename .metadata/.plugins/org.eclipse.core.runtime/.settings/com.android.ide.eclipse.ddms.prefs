@@ -1,0 +1,15 @@
+ddms.logcat.automonitor.userprompt=true
+eclipse.preferences.version=1
+logcat.msg.color.assert=255,128,128
+logcat.msg.color.debug=0,128,255
+logcat.msg.color.error=255,128,128
+logcat.msg.color.info=0,255,255
+logcat.msg.color.verbose=255,255,255
+logcat.view.colsize.Application=189
+logcat.view.colsize.Level=35
+logcat.view.colsize.PID=66
+logcat.view.colsize.TID=66
+logcat.view.colsize.Tag=143
+logcat.view.colsize.Text=748
+logcat.view.colsize.Time=182
+logcat.view.filters.list=name\: 'this', tag\: '', text\: '', pid\: '', app\: 'com.example.activitytest', level\: 'verbose', name\: 'SecondActivity', tag\: 'SecondActivity', text\: '', pid\: '', app\: '', level\: 'verbose', name\: 'TAG', tag\: 'MainActivity', text\: '', pid\: '', app\: '', level\: 'verbose', 

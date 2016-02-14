@@ -1,0 +1,8 @@
+package com.example.uiwidgettest;
+
+import android.widget.ArrayAdapter;
+
+public class FruitAdapter extends ArrayAdapter<fruit>{
+	private 
+
+}

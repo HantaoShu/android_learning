@@ -1,27 +1,108 @@
 package com.example.databasetest;
 
 import android.app.Activity;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class MainActivity extends Activity {
 	private Button crateDatabase;
+	private Button addData;
+	private Button deleteData;
+	private Button queryData;
+	private Button updataData;
+	private Button replcaeData;
+	private String TAG;
 	private MyDatabaseHelper dbHelper;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		TAG = "forTest";
 		crateDatabase = (Button) findViewById(R.id.create_database);
-		dbHelper = new MyDatabaseHelper(this, "BookStore.db", null, 1);
+		addData = (Button) findViewById(R.id.add_data);
+		updataData = (Button) findViewById(R.id.updata_data);
+		queryData = (Button) findViewById(R.id.query_data);
+		deleteData = (Button) findViewById(R.id.delete_data);
+		replcaeData = (Button) findViewById(R.id.replace_data);
+		dbHelper = new MyDatabaseHelper(this, "BookStore.db", null, 2);
 		crateDatabase.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				dbHelper.getWritableDatabase();
+			}
+		});
+		addData.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				SQLiteDatabase db = dbHelper.getReadableDatabase();
+				ContentValues values = new ContentValues();
+				values.put("name", "The Da Vinci Code");
+				values.put("author", "Dan Brown");
+				values.put("pages", 454);
+				values.put("price", 16.96);
+				db.insert("Book", null, values);
+				values.clear();
+				values.put("name", "The Lost Symbol");
+				values.put("author", "Dan Brown");
+				values.put("pages", 454);
+				values.put("price",19.95);
+				db.insert("Book", null, values);
+				
+			}
+		});
+		updataData.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				SQLiteDatabase db = dbHelper.getWritableDatabase();
+				ContentValues values = new ContentValues();
+				values.put("price", 10.99);
+				values.put("pages", 505);
+				db.update("Book", values, "name = ?", new String[]{"The Da Vinci Code"});
+			}
+		});
+		queryData.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				SQLiteDatabase db = dbHelper.getWritableDatabase();
+				Cursor cursor = db.query("Book",null,null,null,null, null, null);
+				if(cursor.moveToFirst()){
+					do{
+						String name = cursor.getString(cursor.getColumnIndex("name"));
+						String author= cursor.getString(cursor.getColumnIndex("author"));
+						int pages = cursor.getInt(cursor.getColumnIndex("pages"));
+						double price = cursor.getDouble(cursor.getColumnIndex("price"));
+						Log.d(TAG, "book name is "+name);
+						Log.d(TAG, "book author is "+author);
+						Log.d(TAG, "book pages is "+pages);
+						Log.d(TAG, "book price is "+price);
+					}while(cursor.moveToNext());
+				}
+				cursor.close();
+			}
+		});
+		deleteData.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				SQLiteDatabase db = dbHelper.getWritableDatabase();
+				db.delete("Book", "pages > ?", new String[]{"500"});
 			}
 		});
 	}

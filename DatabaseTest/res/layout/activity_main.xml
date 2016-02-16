@@ -9,5 +9,34 @@
         android:layout_height="wrap_content"
         android:text="Create database"
         ></Button>
-
+	<Button 
+	   android:id="@+id/add_data" 
+	   android:layout_width="match_parent"
+	   android:layout_height="wrap_content"
+	   android:text="Add data"
+	   ></Button>
+	<Button 
+	   android:id="@+id/updata_data" 
+	   android:layout_width="match_parent"
+	   android:layout_height="wrap_content"
+	   android:text="Updata data"
+	   ></Button>
+	<Button 
+	   android:id="@+id/delete_data" 
+	   android:layout_width="match_parent"
+	   android:layout_height="wrap_content"
+	   android:text="Delete data"
+	   ></Button>
+	<Button 
+	   android:id="@+id/query_data" 
+	   android:layout_width="match_parent"
+	   android:layout_height="wrap_content"
+	   android:text="Query data"
+	   ></Button>
+	<Button 
+	   android:id="@+id/replace_data" 
+	   android:layout_width="match_parent"
+	   android:layout_height="wrap_content"
+	   android:text="Replace data"
+	   ></Button>
 </LinearLayout>

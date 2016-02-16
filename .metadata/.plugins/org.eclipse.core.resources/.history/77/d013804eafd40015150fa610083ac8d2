@@ -1,0 +1,36 @@
+package com.example.providertest;
+
+import android.app.Activity;
+import android.content.ContentValues;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class MainActivity extends Activity{
+	private String newId;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		Button addData = (Button)findViewById(R.id.add_data);
+		addData.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Uri uri = Uri.parse("content://com.example.databasetest.provider/book");
+				ContentValues valuse = new ContentValues();
+				valuse.put("name", "A Clash of Kings");
+				valuse.put("anthor", "George Martin");
+				valuse.put("pages", 1040);
+				valuse.put("price", 22.8);
+				Uri newUri = getContentResolver().insert(uri, values);
+				newId = newUri.getPathSegments().get(1);
+				
+			}
+		});
+	}
+
+}

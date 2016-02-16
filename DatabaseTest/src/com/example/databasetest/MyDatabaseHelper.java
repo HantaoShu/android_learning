@@ -8,12 +8,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class MyDatabaseHelper extends SQLiteOpenHelper{
 	public static final String CREATE_BOOK = "create table Book("
-			+"id integer primary key autoincrement,"
+			+ "id integer primary key autoincrement,"
 			+ "author text,"
 			+ "price real,"
 			+ "pages integer,"
-			+ "name text)"
-			+ "category_id integer";
+			+ "name text,"
+			+ "category_id integer)";
 	public static final String CREATE_CATEGORY = "create table Category("
 			+ "id integer primary key autoincrement,"
 			+ "category_name text,"
@@ -29,7 +29,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper{
 		// TODO Auto-generated method stub
 		db.execSQL(CREATE_BOOK);
 		db.execSQL(CREATE_CATEGORY);
-		Toast.makeText(mContext, "create succeed", Toast.LENGTH_LONG).show();
 	}
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

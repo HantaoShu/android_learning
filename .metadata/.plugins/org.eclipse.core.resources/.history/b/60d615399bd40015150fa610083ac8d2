@@ -1,0 +1,10 @@
+package com.example.databasetest;
+
+import android.content.ContentProvider;
+
+public class DatabaseProvider extends ContentProvider {
+	public static final int BOOK_DIR = 0;
+	public static final int BOOK_ITEM= 0;
+	public static final int CATEGORY_DIR = 0;
+	public static final int CATEGORY_ITEM= 0;
+}

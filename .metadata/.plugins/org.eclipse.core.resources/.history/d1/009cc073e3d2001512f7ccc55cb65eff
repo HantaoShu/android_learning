@@ -1,7 +1,0 @@
-package com.example.activitytest;
-
-import android.content.BroadcastReceiver;
-
-public class BootCompleteReceiver extends BroadcastReceiver {
-	
-}

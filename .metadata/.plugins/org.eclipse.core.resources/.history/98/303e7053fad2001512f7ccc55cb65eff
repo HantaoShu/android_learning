@@ -1,5 +1,0 @@
-package com.example.broadcastbestpractice;
-
-public class MainActivity extends BestActivity{
-	
-}

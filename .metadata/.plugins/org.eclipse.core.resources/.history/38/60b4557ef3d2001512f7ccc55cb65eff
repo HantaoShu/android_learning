@@ -1,5 +1,0 @@
-package com.example.broadcastbestpractice;
-
-public class ActivityCollector {
-	public static List<Activity> activities = new ArrayList<Activity>();
-}

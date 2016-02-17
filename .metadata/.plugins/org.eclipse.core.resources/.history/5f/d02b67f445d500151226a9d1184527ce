@@ -1,0 +1,18 @@
+package com.example.notificationtest;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Button;
+
+public class NotificationActivity extends Activity{
+	private Button notice;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		notice = (Button) findViewById(R.id.send_notice);
+	
+	}
+
+}

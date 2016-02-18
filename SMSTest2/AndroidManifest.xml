@@ -2,8 +2,11 @@
     package="com.example.smstest2"
     android:versionCode="1"
     android:versionName="1.0" >
+	
 	<uses-permission android:name="android.permission.RECEIVE_SMS"/>
-    <uses-sdk
+	<uses-permission android:name="android.permission.SEND_SMS"/>
+
+	<uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
 
